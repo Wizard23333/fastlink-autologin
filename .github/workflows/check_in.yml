@@ -1,0 +1,22 @@
+# github workflow
+name: check in
+on:
+  push:
+  schedule:
+    - cron: '0 22 * * *'
+
+jobs:
+  check-in:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3.3.0
+      - name: set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.7' 
+          cache: 'pip'
+      - name: install dependence
+        run: pip install -r requirements.txt
+      - name: run check-in scripts
+        run: python fastlinkAutoSignUp.py
