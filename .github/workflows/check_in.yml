@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '0 22 * * *'
 
+  # 允许在 github actions 页面手动触发
+  workflow_dispatch:
+  
 jobs:
   check-in:
     runs-on: ubuntu-latest

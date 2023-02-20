@@ -1,6 +1,6 @@
 # fastlink-autologin
 
-> 某个网站的自动登录签到脚本，[随缘aff](https://v01.fl-aff.com/auth/register?code=A2qb)
+> 某个网站✈️的自动登录签到脚本，[随缘aff(推广)](https://v01.fl-aff.com/auth/register?code=A2qb)
 
 # 使用方法
 
@@ -8,7 +8,7 @@
 
    **<img src="README.assets/%E6%88%AA%E5%B1%8F2023-02-07%2011.45.01.png" alt="截屏2023-02-07 11.45.01" style="zoom:50%;" />**
 
-2. **设置仓库的Github Action**
+2. **设置仓库的 Github Actions**
 
    * 点击 "I understand"
 
@@ -21,7 +21,7 @@
    * 更多有关GitHub Action内容请参考[官方文档](https://docs.github.com/en/actions)
    * 有关workflow语法请参考[workflow-syntax-for-github-actions](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
 
-3. **设置登录信息**
+3. **配置登录信息**
 
    * 进入仓库的设置中，选择Actions设置，点击右方按钮设置仓库密钥。（**设置内容仅对自己可见，同时在workflow输出中也不可见**）
 
@@ -33,20 +33,27 @@
 
    ![截屏2023-02-07 12.00.14](README.assets/%E6%88%AA%E5%B1%8F2023-02-07%2012.00.14.png)
 
-4.  触发workflow
+4. 触发workflow
 
-   * 通过两种方式可以触发，push和定时任务
+   * 通过三种方式可以触发：push、定时任务、在actions页面手动触发
 
      ```yaml
      on:
        push:
        schedule:
          - cron: '0 22 * * *'
+     
+       # 允许在 github actions 页面手动触发
+       workflow_dispatch:
      ```
 
    * 定时任务使用的是UTC时间，所以实际触发时间为北京时间6:00
 
    * 可以通过push任意的commit来触发该任务，检测是否能正常触发
+
+   * 在actions页面点击按钮手动触发任务
+
+     ![截屏2023-02-20 21.08.39](README.assets/%E6%88%AA%E5%B1%8F2023-02-20%2021.08.39.png)
 
 5. 检查任务执行情况
 
